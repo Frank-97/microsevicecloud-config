@@ -15,7 +15,7 @@ eureka:
     fetch-registry: false
     service-url:
       #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
-      defaultZone: http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+      defaultZone: http://eureka7001.com:7001/eureka/
 
 ---
 server:
@@ -35,4 +35,5 @@ eureka:
     fetch-registry: false
     service-url:
       #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
-      defaultZone: http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+      defaultZone: http://eureka7001.com:7001/eureka/
+
