@@ -1,0 +1,112 @@
+#服务配置
+server:
+  port: 8001
+
+
+#mybatis配置
+mybatis:
+  type-aliases-package: com.hxx.springcloud.entities   #所有Entities别名类在包
+# config-location: classpath:mybatis/mybatis.cfg.xml   #mybatis配置文件所在路径
+  mapper-locations: classpath:mybatis/**/*.xml         #mapper映射文件
+
+spring:
+  profiles: dev
+  application:
+    name: microservicecloud-config-dept-client
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/cloudDB01
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    #   数据源其他配置
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    #   配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    filters: stat,wall,log4j
+    maxPoolPreparedStatementPerConnectionSize: 20
+    useGlobalDataSourceStat: true
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+    # 是否开启缓存，开发中设置成false,便于更改文件后，自动刷新
+  thymeleaf:
+    cache: false
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+  instance-id: microservicecloud-dept8001
+  prefer-ip-address: true
+
+info:
+  app.name: hxx-microservicecloud
+  company.name: www.hxci.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+
+---
+#服务配置
+server:
+  port: 8001
+
+
+#mybatis配置
+mybatis:
+  type-aliases-package: com.hxx.springcloud.entities   #所有Entities别名类在包
+# config-location: classpath:mybatis/mybatis.cfg.xml   #mybatis配置文件所在路径
+  mapper-locations: classpath:mybatis/**/*.xml         #mapper映射文件
+
+spring:
+  profiles: test
+  application:
+    name: microservicecloud-config-dept-client
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/cloudDB02
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    #   数据源其他配置
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    #   配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    filters: stat,wall,log4j
+    maxPoolPreparedStatementPerConnectionSize: 20
+    useGlobalDataSourceStat: true
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+    # 是否开启缓存，开发中设置成false,便于更改文件后，自动刷新
+  thymeleaf:
+    cache: false
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+  instance-id: microservicecloud-dept8001
+  prefer-ip-address: true
+
+info:
+  app.name: hxx-microservicecloud
+  company.name: www.hxci.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
